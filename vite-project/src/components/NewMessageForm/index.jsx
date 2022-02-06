@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
-const NewMessageForm = () => {
+const NewMessageForm = ({ onSend }) => {
   const [inputText, setInputText] = useState('')
 
   const handleTextChange = (event) => {
     setInputText(event.target.value)
   }
   const handleSend = () => {
+    onSend(inputText)
     setInputText('')
   }
 

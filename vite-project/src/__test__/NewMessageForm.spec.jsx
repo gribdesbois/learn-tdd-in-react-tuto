@@ -1,0 +1,25 @@
+/**
+ * @jest-environment jsdom
+ */
+import React from 'react'
+/* import _ from 'babel-polyfill' */
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import NewMessageForm from '../components/NewMessageForm'
+
+describe('<NewMessageForm />', () => {
+  let getByTestId
+
+  describe('clicking the send button', () => {
+    beforeEach(async () => {
+      ;({ getByTestId } = render(<NewMessageForm />))
+
+      await userEvent.type(getByTestId('messageText'), 'New message')
+      userEvent.click(getByTestId('sendButton'))
+    })
+
+    it('clears the text field', () => {
+      expect(getByTestId('messageText').value).toEqual('')
+    })
+  })
+})

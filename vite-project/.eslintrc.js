@@ -38,7 +38,7 @@ module.exports = {
     'react-app',
     'prettier',
     'eslint-config-prettier',
-    'eslint-plugin-import',
+    /* 'eslint-plugin-import', */
   ],
 
 };
